@@ -4,11 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Material Hub - Himanshu Chaudhary</title>
-
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png?v=2">
-<link rel="shortcut icon" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png?v=2" type="image/x-icon">
-<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png?v=2">
-
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
@@ -27,8 +23,8 @@ body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background:v
 
 header{ background: var(--header-bg); color:white; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .logo-container{ display:flex; align-items:center; gap:12px; }
-/* HEADER LOGO */
-.logo-img{ width:50px; height:50px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); background: #fff; }
+/* 2. LOGO IMAGE FIX */
+.logo-img{ width:50px; height:50px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); background:#fff; }
 .site-title { margin: 0; font-size: 20px; font-style: italic; font-weight: 600; letter-spacing: 0.5px; }
 
 .toggle-btn{ cursor:pointer; background: rgba(255,255,255,0.2); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; }
@@ -90,7 +86,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 
 <header>
   <div class="logo-container">
-    <img src="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png?v=2" alt="Logo" class="logo-img">
+    <img src="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png" alt="Logo" class="logo-img">
     <h2 class="site-title">Study Material Hub</h2>
   </div>
   <button class="toggle-btn" onclick="toggleDarkMode()">
@@ -100,7 +96,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 
 <main>
   <aside>
-    <img src="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png?v=2" alt="Admin" class="profile-pic" onclick="openAdmin()">
+    <img src="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png" alt="Admin" class="profile-pic" onclick="openAdmin()">
     <h3 class="admin-title" onclick="openAdmin()">ADMIN HUB</h3>
     <p style="font-size: 14px; font-weight:bold; margin-top:5px;">Himanshu Chaudhary</p>
 
@@ -201,6 +197,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 <script>
 let selCategory = '', selClass = '';
 
+/* UPDATED DATABASE WITH CHAPTER NAMES */
 const bookDatabase = {
     "11_Hindi": [
         { 
@@ -209,17 +206,15 @@ const bookDatabase = {
             full: "https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing", 
             chapters: [
                 { chName: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
-                { chName: "Chapter 1: Premchand", link: "https://drive.google.com/file/d/1vH_2o_pL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 2: Krishna Sobti", link: "https://drive.google.com/file/d/1X5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 3: Satyajit Ray", link: "https://drive.google.com/file/d/1Z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 4: Balmukund Gupta", link: "https://drive.google.com/file/d/1b5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 5: Shekhar Joshi", link: "https://drive.google.com/file/d/1d5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 6: Mannu Bhandari", link: "https://drive.google.com/file/d/1f5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 9: Kabir", link: "https://drive.google.com/file/d/1l5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 12: Trilochan", link: "https://drive.google.com/file/d/1r5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 14: Dushyant Kumar", link: "https://drive.google.com/file/d/1v5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 15: Akka Mahadevi", link: "https://drive.google.com/file/d/1x5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Chapter 16: Paash", link: "https://drive.google.com/file/d/1z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
+                { chName: "Ch 1: Premchand (Namak Ka Daroga)", link: "https://drive.google.com/file/d/1vH_2o_pL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 2: Krishna Sobti (Miya Nasiruddin)", link: "https://drive.google.com/file/d/1X5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 3: Satyajit Ray (Apu Ke Saath Dhai Saal)", link: "https://drive.google.com/file/d/1Z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 4: Balmukund Gupta (Vidaai-Sambhashan)", link: "https://drive.google.com/file/d/1b5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 5: Shekhar Joshi (Galt लोहा)", link: "https://drive.google.com/file/d/1d5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 6: Krishnanath (Spiti Mein Baarish)", link: "https://drive.google.com/file/d/1f5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 9: Kabir (Hum Tau Ek Ek Kari Jaana)", link: "https://drive.google.com/file/d/1l5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 12: Trilochan (Champa Kale Akshar Nahi Chinhthi)", link: "https://drive.google.com/file/d/1r5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 14: Dushyant Kumar (Ghazal)", link: "https://drive.google.com/file/d/1v5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
             ]
         }
     ]
@@ -283,7 +278,7 @@ function openChapterView(book) {
         if(typeof ch === 'object') {
             item.innerHTML = `<span class="chapter-name">${ch.chName}</span><div style="display:flex; gap:10px;"><a href="${ch.link}" target="_blank" class="download-link" style="background:#16a34a;">OPEN</a><a href="${ch.link}" target="_blank" class="download-link">PDF</a></div>`;
         } else {
-            item.innerHTML = `<span class="chapter-name">${ch}</span><a href="${book.full}" target="_blank" class="download-link">PDF</a>`;
+            item.innerHTML = `<span class="chapter-name">${ch}</span><a href="${book.full}" target="_blank" class="download-link"><i class="fa-solid fa-download"></i> PDF</a>`;
         }
         list.appendChild(item);
     });
