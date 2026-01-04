@@ -195,7 +195,11 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 <script>
 let selCategory = '', selClass = '';
 
-/* UPDATED DATABASE WITH YOUR DRIVE LINKS */
+/* IMAGE PRE-LOADER (FAST LOADING) */
+const aarohImage = new Image();
+aarohImage.src = "https://ncert.nic.in/textbook/pdf/khah1cc.jpg";
+
+/* DATABASE */
 const bookDatabase = {
     "11_Hindi": [
         { 
@@ -275,13 +279,16 @@ function showBooksList(subject) {
     });
 }
 
-/* UPDATED FUNCTION FOR OPEN/DOWNLOAD BUTTONS */
 function openChapterView(book) {
     hideAll();
     document.getElementById("chapterViewArea").style.display = "block";
     document.getElementById("displayBookName").innerText = book.name;
     document.getElementById("displayClassInfo").innerText = "Class " + selClass + " | " + (selCategory==='books'?'NCERT PDF':'NCERT Solution');
-    document.getElementById("bookCover").src = book.img;
+    
+    // FAST IMAGE LOAD USING PRE-LOADED SOURCE
+    const imgElement = document.getElementById("bookCover");
+    imgElement.src = (book.name.includes("Aaroh")) ? aarohImage.src : book.img;
+    
     document.getElementById("fullBookLink").href = book.full;
     document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea');
 
