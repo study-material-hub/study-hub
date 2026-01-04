@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Material Hub - Himanshu Chaudhary</title>
+
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
+/* Aapka Style 100% same hai */
 :root{
   --bg:#f1f5f9; --card:#ffffff; --text:#111827; 
   --header-bg: linear-gradient(135deg, #1e40af, #3b82f6); 
@@ -18,62 +22,46 @@
   --bg:#020617; --card:#0f172a; --text:#e5e7eb; 
   --header-bg: #111827; --border: #334155;
 }
-
 body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); transition: 0.3s; }
-
 header{ background: var(--header-bg); color:white; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .logo-container{ display:flex; align-items:center; gap:12px; }
-/* 2. LOGO IMAGE FIX */
 .logo-img{ width:50px; height:50px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); background:#fff; }
 .site-title { margin: 0; font-size: 20px; font-style: italic; font-weight: 600; letter-spacing: 0.5px; }
-
 .toggle-btn{ cursor:pointer; background: rgba(255,255,255,0.2); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; }
-
 main{ display:grid; grid-template-columns: 1fr; gap:20px; padding:20px; max-width: 1200px; margin: auto; }
 @media (min-width: 768px) { main { grid-template-columns: 280px 1fr; } }
-
 aside, section{ background:var(--card); padding:20px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid var(--border); }
 aside{ text-align:center; height: fit-content; }
-
 .admin-title { font-size: 18px; font-weight: 800; font-style: italic; text-transform: uppercase; margin-top: 15px; color: var(--text); cursor: pointer; }
 aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3px solid #000; cursor: pointer; background: #000; }
-
 .sidebar-box { margin-top: 20px; padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
 .feedback-box { background: #f8fafc; border-left: 5px solid #1e40af; cursor: pointer; }
 .dark .feedback-box { background: #1e293b; }
 .contact-box { background: #f0fdf4; border-left: 5px solid #16a34a; margin-top: 15px; }
 .dark .contact-box { background: #064e3b; }
-
 #feedbackArea { display: none; margin-top: 15px; text-align: left; }
 #feedbackText { width: 100%; height: 90px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 13px; outline: none; resize: none; background: #fff; color: #333; }
 .dark #feedbackText { background: #0f172a; color: #eee; border-color: #334155; }
 .send-btn { width: 100%; background: #1e40af; color: white; border: none; padding: 8px; border-radius: 5px; margin-top: 8px; cursor: pointer; font-weight: bold; }
 #thankYouMsg { display: none; color: #16a34a; font-weight: bold; margin-top: 10px; font-size: 14px; }
-
 .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
 .card { background: var(--accent); color: white; padding: 40px 20px; text-align: center; border-radius: 12px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 .card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
 .book-card { background: var(--card); color: var(--text); border: 1px solid var(--border); flex-direction: column; padding: 15px; gap: 10px; height: auto; }
 .book-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 5px; margin-bottom: 5px; background: #eee; }
 .book-card span { font-size: 15px; font-weight: bold; color: var(--text); }
-
 .search-box { margin-bottom: 20px; }
 .search-box input{ width:100%; padding:15px; font-size:16px; border-radius: 10px; border: 1px solid var(--border); outline: none; background: var(--card); color: var(--text); box-sizing: border-box; }
-
 .book-header { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 25px; background: var(--bg); padding: 20px; border-radius: 12px; position: relative; border: 1px solid var(--border); }
 .book-img { width: 130px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); background: #eee; }
 .book-info h2 { margin: 0; color: var(--text); font-size: 24px; }
 .full-download-btn { position: absolute; right: 20px; top: 20px; background: #16a34a; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-
 @media (max-width: 600px) { .full-download-btn { position: static; margin-top: 10px; width: 100%; justify-content: center; } }
-
 .chapter-list { display: flex; flex-direction: column; gap: 12px; }
 .chapter-item { display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; transition: 0.2s; }
 .chapter-item:hover { border-color: #3b82f6; background: var(--bg); }
 .chapter-name { font-weight: 600; color: var(--text); font-size: 16px; }
 .download-link { background: #1e40af; color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: bold; }
-
 .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
 .modal-content { background: var(--card); margin: 10% auto; padding: 30px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; position: relative; color: var(--text); }
 .close-btn { position: absolute; right: 20px; top: 10px; font-size: 25px; cursor: pointer; color: #888; }
@@ -197,12 +185,11 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 <script>
 let selCategory = '', selClass = '';
 
-/* UPDATED DATABASE WITH CHAPTER NAMES */
 const bookDatabase = {
     "11_Hindi": [
         { 
             name: "Aaroh (Hindi Textbook)", 
-            img: "https://via.placeholder.com/150/1e40af/ffffff?text=HINDI+AAROH", 
+            img: "https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png", 
             full: "https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing", 
             chapters: [
                 { chName: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
@@ -210,11 +197,9 @@ const bookDatabase = {
                 { chName: "Ch 2: Krishna Sobti (Miya Nasiruddin)", link: "https://drive.google.com/file/d/1X5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
                 { chName: "Ch 3: Satyajit Ray (Apu Ke Saath Dhai Saal)", link: "https://drive.google.com/file/d/1Z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
                 { chName: "Ch 4: Balmukund Gupta (Vidaai-Sambhashan)", link: "https://drive.google.com/file/d/1b5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 5: Shekhar Joshi (Galt लोहा)", link: "https://drive.google.com/file/d/1d5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+                { chName: "Ch 5: Shekhar Joshi (Galt Loha)", link: "https://drive.google.com/file/d/1d5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
                 { chName: "Ch 6: Krishnanath (Spiti Mein Baarish)", link: "https://drive.google.com/file/d/1f5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 9: Kabir (Hum Tau Ek Ek Kari Jaana)", link: "https://drive.google.com/file/d/1l5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 12: Trilochan (Champa Kale Akshar Nahi Chinhthi)", link: "https://drive.google.com/file/d/1r5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 14: Dushyant Kumar (Ghazal)", link: "https://drive.google.com/file/d/1v5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
+                { chName: "Ch 9: Kabir (Pad/Saakhi)", link: "https://drive.google.com/file/d/1l5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
             ]
         }
     ]
@@ -230,60 +215,47 @@ function showClasses(category) {
         grid.appendChild(btn);
     }
 }
-
 function loadSubjects(stream) {
     hideAll(); document.getElementById("subjectGridArea").style.display = "block";
     const grid = document.getElementById("subjectGrid"); grid.innerHTML = '';
     document.getElementById("subBackBtn").onclick = () => (selClass >= 11) ? goBack('subjectGridArea', 'streamGridArea') : goBack('subjectGridArea', 'classGridArea');
-    
     let list = (stream==='maths_stream')?["Maths","Physics","Chemistry","English","Hindi"]:(stream==='biology_stream')?["Biology","Physics","Chemistry","English","Hindi"]:(selClass>=6)?["Maths","Science","SST","English","Hindi"]:["Maths","EVS","English","Hindi"];
-    
     list.forEach(sub => {
         const btn = document.createElement("div"); btn.className = "card bold-btn"; btn.innerHTML = sub.toUpperCase();
-        btn.onclick = () => (selCategory === 'books' || selCategory === 'solutions') ? showBooksList(sub) : alert("Working on this..."); 
+        btn.onclick = () => (selCategory === 'books' || selCategory === 'solutions') ? showBooksList(sub) : alert("Working..."); 
         grid.appendChild(btn);
     });
 }
-
 function showBooksList(subject) {
-    hideAll();
-    document.getElementById("bookListArea").style.display = "block";
+    hideAll(); document.getElementById("bookListArea").style.display = "block";
     const grid = document.getElementById("bookGrid"); grid.innerHTML = '';
     const key = selClass + "_" + subject;
-    const books = bookDatabase[key] || [{name: subject + " Textbook", img: "https://via.placeholder.com/150/1e40af/ffffff?text="+subject, full: "#", chapters: ["Coming Soon..."]}];
-
+    const books = bookDatabase[key] || [{name: subject + " Textbook", img: "https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png", full: "#", chapters: ["Coming Soon..."]}];
     books.forEach(book => {
-        const card = document.createElement("div");
-        card.className = "card book-card";
+        const card = document.createElement("div"); card.className = "card book-card";
         card.innerHTML = `<img src="${book.img}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3308/3308319.png'"><span>${book.name}</span>`;
         card.onclick = () => openChapterView(book);
         grid.appendChild(card);
     });
 }
-
 function openChapterView(book) {
-    hideAll();
-    document.getElementById("chapterViewArea").style.display = "block";
+    hideAll(); document.getElementById("chapterViewArea").style.display = "block";
     document.getElementById("displayBookName").innerText = book.name;
     document.getElementById("displayClassInfo").innerText = "Class " + selClass + " | " + (selCategory==='books'?'NCERT PDF':'NCERT Solution');
     document.getElementById("bookCover").src = book.img;
     document.getElementById("fullBookLink").href = book.full;
     document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea');
-
-    const list = document.getElementById("chapterList");
-    list.innerHTML = '';
+    const list = document.getElementById("chapterList"); list.innerHTML = '';
     book.chapters.forEach(ch => {
-        const item = document.createElement("div");
-        item.className = "chapter-item";
+        const item = document.createElement("div"); item.className = "chapter-item";
         if(typeof ch === 'object') {
             item.innerHTML = `<span class="chapter-name">${ch.chName}</span><div style="display:flex; gap:10px;"><a href="${ch.link}" target="_blank" class="download-link" style="background:#16a34a;">OPEN</a><a href="${ch.link}" target="_blank" class="download-link">PDF</a></div>`;
         } else {
-            item.innerHTML = `<span class="chapter-name">${ch}</span><a href="${book.full}" target="_blank" class="download-link"><i class="fa-solid fa-download"></i> PDF</a>`;
+            item.innerHTML = `<span class="chapter-name">${ch}</span><a href="${book.full}" target="_blank" class="download-link">PDF</a>`;
         }
         list.appendChild(item);
     });
 }
-
 function toggleDarkMode() { document.getElementById("bodyTag").classList.toggle("dark"); document.getElementById("modeIcon").classList.toggle("fa-moon"); document.getElementById("modeIcon").classList.toggle("fa-sun"); }
 function searchItems(selector, id) { let input = document.getElementById(id).value.toLowerCase(); document.querySelectorAll(selector).forEach(c => c.style.display = c.innerText.toLowerCase().includes(input) ? "flex" : "none"); }
 function hideAll() { ["mainGrid", "mainSearch", "classGridArea", "streamGridArea", "subjectGridArea", "bookListArea", "chapterViewArea"].forEach(id => document.getElementById(id).style.display = "none"); }
@@ -292,6 +264,5 @@ function openAdmin() { document.getElementById("adminModal").style.display = "bl
 function closeAdmin() { document.getElementById("adminModal").style.display = "none"; }
 function toggleFeedback(e) { if (e.target.id === "feedbackText" || e.target.id === "submitBtn") return; const area = document.getElementById("feedbackArea"); area.style.display = (area.style.display === "block") ? "none" : "block"; }
 </script>
-
 </body>
 </html>
