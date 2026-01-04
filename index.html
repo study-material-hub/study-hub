@@ -195,14 +195,11 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 <script>
 let selCategory = '', selClass = '';
 
-// IMAGE DATA (Base64) - Isse browser ko internet se image load nahi karni padegi, ye turant load hogi.
-const aarohBase64 = "data:image/jpeg;base64,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";
-
 const bookDatabase = {
     "11_Hindi": [
         { 
             name: "Aaroh (Hindi Textbook)", 
-            img: aarohBase64, // Yahan link ki jagah Base64 use kar rahe hain
+            img: "https://ncert.nic.in/textbook/pdf/khah1cc.jpg", 
             full: "https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing", 
             chapters: [
                 { chName: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
@@ -271,21 +268,24 @@ function showBooksList(subject) {
     books.forEach(book => {
         const card = document.createElement("div");
         card.className = "card book-card";
-        card.innerHTML = `<img src="${book.img}"><span>${book.name}</span>`;
+        
+        // Proxy URL used for thumbnail
+        const proxyImg = "https://images.weserv.nl/?url=" + encodeURIComponent(book.img);
+        card.innerHTML = `<img src="${proxyImg}"><span>${book.name}</span>`;
         card.onclick = () => openChapterView(book);
         grid.appendChild(card);
     });
 }
 
-/* UPDATED FUNCTION FOR FAST IMAGE RENDERING */
 function openChapterView(book) {
     hideAll();
     document.getElementById("chapterViewArea").style.display = "block";
     document.getElementById("displayBookName").innerText = book.name;
     document.getElementById("displayClassInfo").innerText = "Class " + selClass + " | " + (selCategory==='books'?'NCERT PDF':'NCERT Solution');
     
-    // Yahan hum Base64 check kar rahe hain taaki image turant load ho
-    document.getElementById("bookCover").src = book.img;
+    // FAST LOADING PROXY LOGIC
+    // NCERT images are slow, weserv.nl proxy makes them fast
+    document.getElementById("bookCover").src = "https://images.weserv.nl/?url=" + encodeURIComponent(book.img);
     
     document.getElementById("fullBookLink").href = book.full;
     document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea');
