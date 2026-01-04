@@ -1,297 +1,195 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material Hub - Himanshu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --ncert-maroon: #8e244d; 
+            --ncert-blue: #1b2943; 
+            --light-gray: #f4f7f6; 
+            --success-green: #16a34a;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            background: var(--light-gray); 
+            color: #333;
+        }
 
-<title>Study Material Hub - Himanshu Chaudhary</title>
-<meta name="description" content="Download NCERT Books, Solutions and NEET 2026 Papers for free. Created by Himanshu Chaudhary.">
-<meta name="keywords" content="Study Material Hub, Himanshu Chaudhary, Study Hub, NCERT PDF, NEET 2026">
-<meta name="author" content="Himanshu Chaudhary">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        /* Top Header */
+        .top-header { 
+            background: #fff; 
+            padding: 10px 5%; 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 4px solid var(--ncert-maroon);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo-img { height: 50px; margin-right: 15px; border-radius: 5px; }
+        .header-text h1 { color: var(--ncert-maroon); margin: 0; font-size: 22px; }
+        .header-text p { margin: 0; font-size: 14px; font-weight: bold; color: #666; }
 
-<style>
-:root{
-  --bg:#f1f5f9; --card:#ffffff; --text:#111827; 
-  --header-bg: linear-gradient(135deg, #1e40af, #3b82f6); 
-  --accent: linear-gradient(135deg, #1e40af, #3b82f6);
-  --border: #ddd; 
-}
-.dark{ 
-  --bg:#020617; --card:#0f172a; --text:#e5e7eb; 
-  --header-bg: #111827; --border: #334155;
-}
+        /* Main Container */
+        .main-container { 
+            max-width: 1000px; 
+            margin: 30px auto; 
+            padding: 0 20px;
+        }
 
-body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); transition: 0.3s; }
+        /* Book Detail Card (As per your screenshot) */
+        .book-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        .book-info-section { 
+            display: flex; 
+            padding: 25px; 
+            background: #fafafa; 
+            border-bottom: 1px solid #eee;
+            gap: 25px;
+            align-items: center;
+            position: relative;
+        }
+        .book-cover { 
+            width: 140px; 
+            height: 190px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .book-details h2 { margin: 0 0 10px 0; color: #222; }
+        .book-details p { margin: 5px 0; color: #666; font-weight: 500; }
+        
+        .full-download-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--success-green);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
 
-header{ background: var(--header-bg); color:white; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-.logo-container{ display:flex; align-items:center; gap:12px; }
-.logo-img{ width:50px; height:50px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); }
-.site-title { margin: 0; font-size: 20px; font-style: italic; font-weight: 600; letter-spacing: 0.5px; }
+        /* Chapter List */
+        .chapter-list { padding: 10px 20px; }
+        .chapter-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 0; 
+            border-bottom: 1px solid #f0f0f0; 
+        }
+        .chapter-row:last-child { border-bottom: none; }
+        .chapter-name { font-weight: 500; font-size: 15px; }
+        
+        .action-btns { display: flex; gap: 10px; }
+        .btn { 
+            padding: 7px 14px; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+        }
+        .btn-open { background: #e8f5e9; color: var(--success-green); border: 1px solid var(--success-green); }
+        .btn-pdf { background: #1b2943; color: white; }
 
-.toggle-btn{ cursor:pointer; background: rgba(255,255,255,0.2); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+        .back-nav { margin-bottom: 15px; }
+        .back-nav button { 
+            background: none; border: 1px solid #ccc; padding: 5px 15px; 
+            border-radius: 4px; cursor: pointer; font-weight: bold; 
+        }
 
-main{ display:grid; grid-template-columns: 1fr; gap:20px; padding:20px; max-width: 1200px; margin: auto; }
-@media (min-width: 768px) { main { grid-template-columns: 280px 1fr; } }
-
-aside, section{ background:var(--card); padding:20px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid var(--border); }
-aside{ text-align:center; height: fit-content; }
-
-.admin-title { font-size: 18px; font-weight: 800; font-style: italic; text-transform: uppercase; margin-top: 15px; color: var(--text); cursor: pointer; }
-aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3px solid #000; cursor: pointer; background: #000; }
-
-.sidebar-box { margin-top: 20px; padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
-.feedback-box { background: #f8fafc; border-left: 5px solid #1e40af; cursor: pointer; }
-.dark .feedback-box { background: #1e293b; }
-.contact-box { background: #f0fdf4; border-left: 5px solid #16a34a; margin-top: 15px; }
-.dark .contact-box { background: #064e3b; }
-
-#feedbackArea { display: none; margin-top: 15px; text-align: left; }
-#feedbackText { width: 100%; height: 90px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 13px; outline: none; resize: none; background: #fff; color: #333; }
-.dark #feedbackText { background: #0f172a; color: #eee; border-color: #334155; }
-.send-btn { width: 100%; background: #1e40af; color: white; border: none; padding: 8px; border-radius: 5px; margin-top: 8px; cursor: pointer; font-weight: bold; }
-#thankYouMsg { display: none; color: #16a34a; font-weight: bold; margin-top: 10px; font-size: 14px; }
-
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
-.card { background: var(--accent); color: white; padding: 40px 20px; text-align: center; border-radius: 12px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
-.book-card { background: var(--card); color: var(--text); border: 1px solid var(--border); flex-direction: column; padding: 15px; gap: 10px; height: auto; }
-.book-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 5px; margin-bottom: 5px; }
-.book-card span { font-size: 15px; font-weight: bold; color: var(--text); }
-
-.search-box { margin-bottom: 20px; }
-.search-box input{ width:100%; padding:15px; font-size:16px; border-radius: 10px; border: 1px solid var(--border); outline: none; background: var(--card); color: var(--text); box-sizing: border-box; }
-
-.book-header { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 25px; background: var(--bg); padding: 20px; border-radius: 12px; position: relative; border: 1px solid var(--border); }
-.book-img { width: 130px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.book-info h2 { margin: 0; color: var(--text); font-size: 24px; }
-.full-download-btn { position: absolute; right: 20px; top: 20px; background: #16a34a; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-
-@media (max-width: 600px) { .full-download-btn { position: static; margin-top: 10px; width: 100%; justify-content: center; } }
-
-.chapter-list { display: flex; flex-direction: column; gap: 12px; }
-.chapter-item { display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; transition: 0.2s; }
-.chapter-item:hover { border-color: #3b82f6; background: var(--bg); }
-.chapter-name { font-weight: 600; color: var(--text); font-size: 16px; }
-.download-link { background: #1e40af; color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: bold; }
-
-.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-.modal-content { background: var(--card); margin: 10% auto; padding: 30px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; position: relative; color: var(--text); }
-.close-btn { position: absolute; right: 20px; top: 10px; font-size: 25px; cursor: pointer; color: #888; }
-.social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-.social-links a { font-size: 28px; text-decoration: none; }
-</style>
+        @media (max-width: 600px) {
+            .book-info-section { flex-direction: column; text-align: center; }
+            .full-download-btn { position: static; margin-top: 15px; }
+            .chapter-row { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
 </head>
+<body>
 
-<body id="bodyTag">
-
-<header>
-  <div class="logo-container">
-    <img src="logo.png" alt="Logo" class="logo-img">
-    <h2 class="site-title">Study Material Hub</h2>
-  </div>
-  <button class="toggle-btn" onclick="toggleDarkMode()">
-    <i class="fa-solid fa-moon" id="modeIcon"></i>
-  </button>
-</header>
-
-<main>
-  <aside>
-    <img src="logo.png" alt="Admin" class="profile-pic" onclick="openAdmin()">
-    <h3 class="admin-title" onclick="openAdmin()">ADMIN HUB</h3>
-    <p style="font-size: 14px; font-weight:bold; margin-top:5px;">Himanshu Chaudhary</p>
-
-    <div class="sidebar-box feedback-box" onclick="toggleFeedback(event)">
-        <h4><i class="fa-solid fa-comment-dots"></i> Feedback</h4>
-        <div id="feedbackArea">
-            <form id="feedbackForm" action="https://formspree.io/f/xeeqaalp" method="POST">
-                <textarea id="feedbackText" name="message" onclick="event.stopPropagation()">Hello This is Himanshu. Please Send Your Feedback</textarea>
-                <button type="submit" class="send-btn" id="submitBtn" onclick="event.stopPropagation()">SEND</button>
-            </form>
+    <header class="top-header">
+        <img src="logo.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50?text=Hub'">
+        <div class="header-text">
+            <h1>Study Material Hub</h1>
+            <p>Himanshu Chaudhary | NCERT Library</p>
         </div>
-        <div id="thankYouMsg">Thank You For Your Feedback!</div>
-    </div>
+    </header>
 
-    <div class="sidebar-box contact-box">
-        <h4><i class="fa-solid fa-address-book"></i> Contact Us</h4>
-        <div class="contact-row" style="display:flex; justify-content:center; gap:25px;">
-            <a href="tel:+916392893589" style="color: #2563eb; font-size: 24px;"><i class="fa-solid fa-phone"></i></a>
-            <a href="https://wa.me/916392893589" target="_blank" style="color: #16a34a; font-size: 24px;"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="main-container">
+        <div class="back-nav">
+            <button onclick="alert('Main Page functionality will go here')">← Back</button>
         </div>
-    </div>
-  </aside>
 
-  <section>
-    <div id="mainSearch" class="search-box">
-        <input type="text" id="searchInput" placeholder="Search Books/Papers..." onkeyup="searchItems('#mainGrid .card', 'searchInput')">
-    </div>
-    
-    <div class="grid-container" id="mainGrid">
-      <div class="card" onclick="showClasses('books')">Ncert Books Pdf</div>
-      <div class="card" onclick="showClasses('solutions')">Ncert Solution</div>
-      <div class="card" onclick="showClasses('sidebooks')">Side Books</div>
-      <div class="card" onclick="showClasses('pyq')">Board PYQ</div>
-      <div class="card" onclick="showClasses('neet')">NEET UG Paper</div>
-      <div class="card" onclick="showClasses('sample')">Sample Paper</div>
-    </div>
-
-    <div id="classGridArea" style="display:none;">
-        <button onclick="goBack('classGridArea', 'mainGrid', true)" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back to Menu</button>
-        <div class="search-box"><input type="text" id="classSearchInput" placeholder="Search Class..." onkeyup="searchItems('#classGrid .card', 'classSearchInput')"></div>
-        <h3 id="classMenuTitle">Select Class</h3>
-        <div class="grid-container" id="classGrid"></div>
-    </div>
-
-    <div id="streamGridArea" style="display:none;">
-        <button onclick="goBack('streamGridArea', 'classGridArea')" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back to Classes</button>
-        <h3>Select Stream</h3>
-        <div class="grid-container">
-            <div class="card bold-btn" onclick="loadSubjects('maths_stream')">MATHS</div>
-            <div class="card bold-btn" onclick="loadSubjects('biology_stream')">BIOLOGY</div>
-            <div class="card bold-btn" onclick="loadSubjects('commerce')">COMMERCE</div>
-            <div class="card bold-btn" onclick="loadSubjects('arts')">ARTS / HUMANITIES</div>
-        </div>
-    </div>
-
-    <div id="subjectGridArea" style="display:none;">
-        <button id="subBackBtn" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
-        <div class="search-box"><input type="text" id="subSearchInput" placeholder="Search Subject..." onkeyup="searchItems('#subjectGrid .card', 'subSearchInput')"></div>
-        <h3 id="subjectMenuTitle">Select Subject</h3>
-        <div class="grid-container" id="subjectGrid"></div>
-    </div>
-
-    <div id="bookListArea" style="display:none;">
-        <button onclick="goBack('bookListArea', 'subjectGridArea')" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back to Subjects</button>
-        <h3 id="bookMenuTitle">Select Specific Book</h3>
-        <div class="grid-container" id="bookGrid"></div>
-    </div>
-
-    <div id="chapterViewArea" style="display:none;">
-        <button id="chapterBackBtn" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
-        <div class="book-header">
-            <img id="bookCover" src="logo.png" class="book-img">
-            <div class="book-info">
-                <h2 id="displayBookName">Book Name</h2>
-                <p id="displayClassInfo" style="font-weight:bold; opacity:0.8;"></p>
+        <div class="book-card">
+            <div class="book-info-section">
+                <img id="bookImg" src="https://ncert.nic.in/textbook/pdf/khah1cc.jpg" alt="Aaroh" class="book-cover">
+                <div class="book-details">
+                    <h2 id="bookTitle">Aaroh (Hindi Textbook)</h2>
+                    <p>Class 11 | NCERT PDF</p>
+                </div>
+                <a id="zipLink" href="https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing" target="_blank" class="full-download-btn">
+                    <i class="fa-solid fa-file-zipper"></i> FULL BOOK
+                </a>
             </div>
-            <a href="#" id="fullBookLink" class="full-download-btn" target="_blank"><i class="fa-solid fa-download"></i> FULL BOOK</a>
+
+            <div class="chapter-list" id="chaptersContainer">
+                </div>
         </div>
-        <div class="chapter-list" id="chapterList"></div>
     </div>
-  </section>
-</main>
 
-<div id="adminModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeAdmin()">&times;</span>
-    <img src="logo.png" style="width:80px; height:80px; border-radius:50%; border: 2px solid #000; background:#000;">
-    <h2>Himanshu Chaudhary</h2>
-    <div class="social-links">
-      <a href="https://www.instagram.com/_x_ji_himanshu/" target="_blank" style="color: #E1306C;"><i class="fa-brands fa-instagram"></i></a>
-      <a href="mailto:hc870229@gmail.com" style="color: #D44638;"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://t.me/himanshu_chaudhary_51" target="_blank" style="color: #0088cc;"><i class="fa-brands fa-telegram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=61563877376412" target="_blank" style="color: #1877F2;"><i class="fa-brands fa-facebook"></i></a>
-    </div>
-  </div>
-</div>
+    <script>
+        const hindiChapters = [
+            { name: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
+            { name: "Chapter 1: Premchand", link: "https://drive.google.com/file/d/1vH_2o_pL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 2: Krishna Sobti", link: "https://drive.google.com/file/d/1X5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 3: Satyajit Ray", link: "https://drive.google.com/file/d/1Z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 4: Balmukund Gupta", link: "https://drive.google.com/file/d/1b5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 5: Shekhar Joshi", link: "https://drive.google.com/file/d/1d5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 6: Mannu Bhandari", link: "https://drive.google.com/file/d/1f5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 9: Kabir", link: "https://drive.google.com/file/d/1l5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 12: Trilochan", link: "https://drive.google.com/file/d/1r5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 14: Dushyant Kumar", link: "https://drive.google.com/file/d/1v5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 15: Akka Mahadevi", link: "https://drive.google.com/file/d/1x5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { name: "Chapter 16: Paash", link: "https://drive.google.com/file/d/1z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
+        ];
 
-<script>
-let selCategory = '', selClass = '';
+        function renderChapters() {
+            const container = document.getElementById('chaptersContainer');
+            container.innerHTML = '';
 
-const bookDatabase = {
-    "12_English": [
-        { name: "Flamingo (Textbook)", img: "https://ncert.nic.in/textbook/pdf/lefl1cc.jpg", full: "https://ncert.nic.in/textbook.php?lefl1=0-8", chapters: ["1. The Last Lesson", "2. Lost Spring", "3. Deep Water", "4. The Rattrap", "5. Indigo"] },
-        { name: "Vistas (Supplementary)", img: "https://ncert.nic.in/textbook/pdf/levi1cc.jpg", full: "https://ncert.nic.in/textbook.php?levi1=0-6", chapters: ["1. The Third Level", "2. The Tiger King", "3. Journey to end of Earth", "4. The Enemy"] },
-        { name: "Kaleidoscope", img: "https://ncert.nic.in/textbook/pdf/lekl1cc.jpg", full: "https://ncert.nic.in/textbook.php?lekl1=0-20", chapters: ["1. I Sell my Dreams", "2. Eveline", "3. A Wedding in Brownsville"] }
-    ],
-    "10_SST": [
-        { name: "History (India & World)", img: "https://ncert.nic.in/textbook/pdf/jess1cc.jpg", full: "https://ncert.nic.in/textbook.php?jess1=0-5", chapters: ["1. Nationalism in Europe", "2. Nationalism in India", "3. Making of Global World"] },
-        { name: "Geography (Resources)", img: "https://ncert.nic.in/textbook/pdf/jess2cc.jpg", full: "https://ncert.nic.in/textbook.php?jess2=0-7", chapters: ["1. Resources & Dev", "2. Forest & Wildlife", "3. Water Resources"] },
-        { name: "Civics (Democratic Pol.)", img: "https://ncert.nic.in/textbook/pdf/jess3cc.jpg", full: "https://ncert.nic.in/textbook.php?jess3=0-5", chapters: ["1. Power Sharing", "2. Federalism", "3. Gender & Religion"] }
-    ],
-    "10_English": [
-        { name: "First Flight", img: "https://ncert.nic.in/textbook/pdf/jeff1cc.jpg", full: "https://ncert.nic.in/textbook.php?jeff1=0-11", chapters: ["1. A Letter to God", "2. Nelson Mandela"] },
-        { name: "Footprints without Feet", img: "https://ncert.nic.in/textbook/pdf/jefp1cc.jpg", full: "https://ncert.nic.in/textbook.php?jefp1=0-10", chapters: ["1. Triumph of Surgery", "2. Thief's Story"] }
-    ]
-};
+            hindiChapters.forEach(ch => {
+                const row = document.createElement('div');
+                row.className = 'chapter-row';
+                row.innerHTML = `
+                    <span class="chapter-name">${ch.name}</span>
+                    <div class="action-btns">
+                        <a href="${ch.link}" target="_blank" class="btn btn-open"><i class="fa-solid fa-eye"></i> OPEN</a>
+                        <a href="${ch.link}" target="_blank" class="btn btn-pdf"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
 
-function showClasses(category) {
-    selCategory = category; hideAll();
-    document.getElementById("classGridArea").style.display = "block";
-    const grid = document.getElementById("classGrid"); grid.innerHTML = '';
-    for (let i = 1; i <= 12; i++) {
-        const btn = document.createElement("div"); btn.className = "card bold-btn"; btn.innerHTML = `CLASS ${i}`;
-        btn.onclick = () => { selClass = i; if(i >= 11) { hideAll(); document.getElementById("streamGridArea").style.display = "block"; } else { loadSubjects('general'); } };
-        grid.appendChild(btn);
-    }
-}
-
-function loadSubjects(stream) {
-    hideAll(); document.getElementById("subjectGridArea").style.display = "block";
-    const grid = document.getElementById("subjectGrid"); grid.innerHTML = '';
-    document.getElementById("subBackBtn").onclick = () => (selClass >= 11) ? goBack('subjectGridArea', 'streamGridArea') : goBack('subjectGridArea', 'classGridArea');
-    
-    let list = (stream==='maths_stream')?["Maths","Physics","Chemistry","English","Hindi"]:(stream==='biology_stream')?["Biology","Physics","Chemistry","English","Hindi"]:(selClass>=6)?["Maths","Science","SST","English","Hindi"]:["Maths","EVS","English","Hindi"];
-    
-    list.forEach(sub => {
-        const btn = document.createElement("div"); btn.className = "card bold-btn"; btn.innerHTML = sub.toUpperCase();
-        btn.onclick = () => {
-            if (selCategory === 'books' || selCategory === 'solutions') {
-                showBooksList(sub);
-            } else {
-                alert("Working on this section...");
-            }
-        }; 
-        grid.appendChild(btn);
-    });
-}
-
-function showBooksList(subject) {
-    hideAll();
-    document.getElementById("bookListArea").style.display = "block";
-    const grid = document.getElementById("bookGrid");
-    grid.innerHTML = '';
-    
-    const key = selClass + "_" + subject;
-    const books = bookDatabase[key] || [{name: subject + " Textbook", img: "https://ncert.nic.in/textbook/pdf/keph1cc.jpg", full: "#", chapters: ["Coming Soon..."]}];
-
-    books.forEach(book => {
-        const card = document.createElement("div");
-        card.className = "card book-card"; 
-        card.innerHTML = `<img src="${book.img}"><span>${book.name}</span>`;
-        card.onclick = () => openChapterView(book);
-        grid.appendChild(card);
-    });
-}
-
-function openChapterView(book) {
-    hideAll();
-    document.getElementById("chapterViewArea").style.display = "block";
-    document.getElementById("displayBookName").innerText = book.name;
-    document.getElementById("displayClassInfo").innerText = "Class " + selClass + " | " + (selCategory==='books'?'NCERT PDF':'NCERT Solution');
-    document.getElementById("bookCover").src = book.img;
-    document.getElementById("fullBookLink").href = book.full;
-    document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea');
-
-    const list = document.getElementById("chapterList");
-    list.innerHTML = '';
-    book.chapters.forEach(ch => {
-        const item = document.createElement("div");
-        item.className = "chapter-item";
-        item.innerHTML = `<span class="chapter-name">${ch}</span><a href="${book.full}" target="_blank" class="download-link"><i class="fa-solid fa-download"></i> ${selCategory==='books'?'PDF':'Solution'}</a>`;
-        list.appendChild(item);
-    });
-}
-
-function toggleDarkMode() { document.getElementById("bodyTag").classList.toggle("dark"); document.getElementById("modeIcon").classList.toggle("fa-moon"); document.getElementById("modeIcon").classList.toggle("fa-sun"); }
-function searchItems(selector, id) { let input = document.getElementById(id).value.toLowerCase(); document.querySelectorAll(selector).forEach(c => c.style.display = c.innerText.toLowerCase().includes(input) ? "flex" : "none"); }
-function hideAll() { ["mainGrid", "mainSearch", "classGridArea", "streamGridArea", "subjectGridArea", "bookListArea", "chapterViewArea"].forEach(id => document.getElementById(id).style.display = "none"); }
-function goBack(curr, tar, s=false) { document.getElementById(curr).style.display = "none"; document.getElementById(tar).style.display = "block"; if(s) document.getElementById("mainSearch").style.display = "block"; }
-function openAdmin() { document.getElementById("adminModal").style.display = "block"; }
-function closeAdmin() { document.getElementById("adminModal").style.display = "none"; }
-function toggleFeedback(e) { if (e.target.id === "feedbackText" || e.target.id === "submitBtn") return; const area = document.getElementById("feedbackArea"); area.style.display = (area.style.display === "block") ? "none" : "block"; }
-</script>
-
+        // Initialize
+        window.onload = renderChapters;
+    </script>
 </body>
 </html>
