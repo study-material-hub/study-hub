@@ -4,24 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Material Hub - Himanshu Chaudhary</title>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png">
-<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png">
+
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/study-material-hub/study-hub/main/logo.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-:root{
-  --bg:#f1f5f9; --card:#ffffff; --text:#111827; 
-  --header-bg: linear-gradient(135deg, #1e40af, #3b82f6); 
-  --accent: linear-gradient(135deg, #1e40af, #3b82f6);
-  --border: #ddd; 
-}
-.dark{ 
-  --bg:#020617; --card:#0f172a; --text:#e5e7eb; 
-  --header-bg: #111827; --border: #334155;
-}
+/* Aapka baaki style same rahega */
+:root{ --bg:#f1f5f9; --card:#ffffff; --text:#111827; --header-bg: linear-gradient(135deg, #1e40af, #3b82f6); --accent: linear-gradient(135deg, #1e40af, #3b82f6); --border: #ddd; }
+.dark{ --bg:#020617; --card:#0f172a; --text:#e5e7eb; --header-bg: #111827; --border: #334155; }
 body{ margin:0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); transition: 0.3s; }
 header{ background: var(--header-bg); color:white; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .logo-container{ display:flex; align-items:center; gap:12px; }
-.logo-img{ width:50px; height:50px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); background:#fff; }
+.logo-img{ width:50px; height:50px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); background: #fff; }
 .site-title { margin: 0; font-size: 20px; font-style: italic; font-weight: 600; letter-spacing: 0.5px; }
 .toggle-btn{ cursor:pointer; background: rgba(255,255,255,0.2); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; }
 main{ display:grid; grid-template-columns: 1fr; gap:20px; padding:20px; max-width: 1200px; margin: auto; }
@@ -44,7 +39,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 .card { background: var(--accent); color: white; padding: 40px 20px; text-align: center; border-radius: 12px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 .card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
 .book-card { background: var(--card); color: var(--text); border: 1px solid var(--border); flex-direction: column; padding: 15px; gap: 10px; height: auto; }
-.book-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 5px; margin-bottom: 5px; background: #eee; }
+.book-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 5px; margin-bottom: 5px; }
 .book-card span { font-size: 15px; font-weight: bold; color: var(--text); }
 .search-box { margin-bottom: 20px; }
 .search-box input{ width:100%; padding:15px; font-size:16px; border-radius: 10px; border: 1px solid var(--border); outline: none; background: var(--card); color: var(--text); box-sizing: border-box; }
@@ -61,7 +56,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
 .modal-content { background: var(--card); margin: 10% auto; padding: 30px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; position: relative; color: var(--text); }
 .close-btn { position: absolute; right: 20px; top: 10px; font-size: 25px; cursor: pointer; color: #888; }
-.social-links { display: center; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+.social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
 .social-links a { font-size: 28px; text-decoration: none; }
 </style>
 </head>
@@ -70,7 +65,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 
 <header>
   <div class="logo-container">
-    <img src="logo.png" alt="Logo" class="logo-img" onerror="this.src='https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png'">
+    <img src="https://raw.githubusercontent.com/study-material-hub/study-hub/main/logo.png" alt="Logo" class="logo-img">
     <h2 class="site-title">Study Material Hub</h2>
   </div>
   <button class="toggle-btn" onclick="toggleDarkMode()">
@@ -80,21 +75,18 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 
 <main>
   <aside>
-    <img src="logo.png" alt="Admin" class="profile-pic" onclick="openAdmin()" onerror="this.src='https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png'">
+    <img src="https://raw.githubusercontent.com/study-material-hub/study-hub/main/logo.png" alt="Admin" class="profile-pic" onclick="openAdmin()">
     <h3 class="admin-title" onclick="openAdmin()">ADMIN HUB</h3>
     <p style="font-size: 14px; font-weight:bold; margin-top:5px;">Himanshu Chaudhary</p>
-
     <div class="sidebar-box feedback-box" onclick="toggleFeedback(event)">
         <h4><i class="fa-solid fa-comment-dots"></i> Feedback</h4>
         <div id="feedbackArea">
-            <form id="feedbackForm" action="https://formspree.io/f/xeeqaalp" method="POST">
+            <form action="https://formspree.io/f/xeeqaalp" method="POST">
                 <textarea id="feedbackText" name="message" onclick="event.stopPropagation()">Hello This is Himanshu. Please Send Your Feedback</textarea>
                 <button type="submit" class="send-btn" id="submitBtn" onclick="event.stopPropagation()">SEND</button>
             </form>
         </div>
-        <div id="thankYouMsg">Thank You For Your Feedback!</div>
     </div>
-
     <div class="sidebar-box contact-box">
         <h4><i class="fa-solid fa-address-book"></i> Contact Us</h4>
         <div class="contact-row" style="display:flex; justify-content:center; gap:25px;">
@@ -106,7 +98,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 
   <section>
     <div id="mainSearch" class="search-box">
-        <input type="text" id="searchInput" placeholder="Search Books/Papers..." onkeyup="searchItems('#mainGrid .card', 'searchInput')">
+        <input type="text" id="searchInput" placeholder="Search Books..." onkeyup="searchItems('#mainGrid .card', 'searchInput')">
     </div>
     <div class="grid-container" id="mainGrid">
       <div class="card" onclick="showClasses('books')">Ncert Books Pdf</div>
@@ -116,35 +108,15 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
       <div class="card" onclick="showClasses('neet')">NEET UG Paper</div>
       <div class="card" onclick="showClasses('sample')">Sample Paper</div>
     </div>
-    <div id="classGridArea" style="display:none;">
-        <button onclick="goBack('classGridArea', 'mainGrid', true)" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back to Menu</button>
-        <div class="grid-container" id="classGrid"></div>
-    </div>
-    <div id="streamGridArea" style="display:none;">
-        <button onclick="goBack('streamGridArea', 'classGridArea')" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
-        <div class="grid-container">
-            <div class="card" onclick="loadSubjects('maths_stream')">MATHS</div>
-            <div class="card" onclick="loadSubjects('biology_stream')">BIOLOGY</div>
-            <div class="card" onclick="loadSubjects('commerce')">COMMERCE</div>
-            <div class="card" onclick="loadSubjects('arts')">ARTS</div>
-        </div>
-    </div>
-    <div id="subjectGridArea" style="display:none;">
-        <button id="subBackBtn" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
-        <div class="grid-container" id="subjectGrid"></div>
-    </div>
-    <div id="bookListArea" style="display:none;">
-        <button onclick="goBack('bookListArea', 'subjectGridArea')" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
-        <div class="grid-container" id="bookGrid"></div>
-    </div>
+    <div id="classGridArea" style="display:none;"><button onclick="goBack('classGridArea', 'mainGrid', true)" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button><div class="grid-container" id="classGrid"></div></div>
+    <div id="streamGridArea" style="display:none;"><button onclick="goBack('streamGridArea', 'classGridArea')" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button><div class="grid-container"><div class="card" onclick="loadSubjects('maths_stream')">MATHS</div><div class="card" onclick="loadSubjects('biology_stream')">BIOLOGY</div><div class="card" onclick="loadSubjects('commerce')">COMMERCE</div><div class="card" onclick="loadSubjects('arts')">ARTS</div></div></div>
+    <div id="subjectGridArea" style="display:none;"><button id="subBackBtn" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button><div class="grid-container" id="subjectGrid"></div></div>
+    <div id="bookListArea" style="display:none;"><button onclick="goBack('bookListArea', 'subjectGridArea')" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button><div class="grid-container" id="bookGrid"></div></div>
     <div id="chapterViewArea" style="display:none;">
         <button id="chapterBackBtn" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
         <div class="book-header">
-            <img id="bookCover" src="logo.png" class="book-img" onerror="this.src='https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png'">
-            <div class="book-info">
-                <h2 id="displayBookName">Book Name</h2>
-                <p id="displayClassInfo"></p>
-            </div>
+            <img id="bookCover" src="" class="book-img" onerror="this.src='https://raw.githubusercontent.com/study-material-hub/study-hub/main/logo.png'">
+            <div class="book-info"><h2 id="displayBookName">Book Name</h2><p id="displayClassInfo"></p></div>
             <a href="#" id="fullBookLink" class="full-download-btn" target="_blank"><i class="fa-solid fa-download"></i> FULL BOOK</a>
         </div>
         <div class="chapter-list" id="chapterList"></div>
@@ -155,46 +127,35 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 <div id="adminModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeAdmin()">&times;</span>
-    <img src="logo.png" style="width:80px; height:80px; border-radius:50%; border: 2px solid #000;" onerror="this.src='https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png'">
+    <img src="https://raw.githubusercontent.com/study-material-hub/study-hub/main/logo.png" style="width:80px; height:80px; border-radius:50%; border: 2px solid #000;">
     <h2>Himanshu Chaudhary</h2>
     <div class="social-links">
       <a href="https://www.instagram.com/_x_ji_himanshu/" target="_blank" style="color: #E1306C;"><i class="fa-brands fa-instagram"></i></a>
       <a href="mailto:hc870229@gmail.com" style="color: #D44638;"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://t.me/himanshu_chaudhary_51" target="_blank" style="color: #0088cc;"><i class="fa-brands fa-telegram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=61563877376412" target="_blank" style="color: #1877F2;"><i class="fa-brands fa-facebook"></i></a>
     </div>
   </div>
 </div>
 
 <script>
 let selCategory = '', selClass = '';
-
-/* UPDATED DATABASE WITH CHAPTER NAMES */
 const bookDatabase = {
-    "11_Hindi": [
-        { 
-            name: "Aaroh (Hindi Textbook)", 
-            img: "https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png", 
-            full: "https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing", 
-            chapters: [
-                { chName: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
-                { chName: "Ch 1: Premchand (Namak Ka Daroga)", link: "https://drive.google.com/file/d/1vH_2o_pL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 2: Krishna Sobti (Miya Nasiruddin)", link: "https://drive.google.com/file/d/1X5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 3: Satyajit Ray (Apu Ke Saath Dhai Saal)", link: "https://drive.google.com/file/d/1Z5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 4: Balmukund Gupta (Vidaai-Sambhashan)", link: "https://drive.google.com/file/d/1b5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 5: Shekhar Joshi (Galt Loha)", link: "https://drive.google.com/file/d/1d5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 6: Krishnanath (Spiti Mein Baarish)", link: "https://drive.google.com/file/d/1f5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
-                { chName: "Ch 9: Kabir (Hum Tau Ek Ek Kari Jaana)", link: "https://drive.google.com/file/d/1l5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
-            ]
-        }
-    ]
+    "11_Hindi": [{ 
+        name: "Aaroh (Hindi Textbook)", 
+        img: "https://ncert.nic.in/textbook/pdf/khah1cc.jpg", 
+        full: "https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing", 
+        chapters: [
+            { chName: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
+            { chName: "Chapter 1: Premchand", link: "https://drive.google.com/file/d/1vH_2o_pL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" },
+            { chName: "Chapter 2: Krishna Sobti", link: "https://drive.google.com/file/d/1X5_2p_nL4hU5Y2i_3q_K6x9k5mN-P8vD/view?usp=sharing" }
+        ]
+    }]
 };
 
-// Functions same as before
 function showClasses(category) { selCategory = category; hideAll(); document.getElementById("classGridArea").style.display = "block"; const grid = document.getElementById("classGrid"); grid.innerHTML = ''; for (let i = 1; i <= 12; i++) { const btn = document.createElement("div"); btn.className = "card"; btn.innerHTML = `CLASS ${i}`; btn.onclick = () => { selClass = i; if(i >= 11) { hideAll(); document.getElementById("streamGridArea").style.display = "block"; } else { loadSubjects('general'); } }; grid.appendChild(btn); } }
-function loadSubjects(stream) { hideAll(); document.getElementById("subjectGridArea").style.display = "block"; const grid = document.getElementById("subjectGrid"); grid.innerHTML = ''; document.getElementById("subBackBtn").onclick = () => (selClass >= 11) ? goBack('subjectGridArea', 'streamGridArea') : goBack('subjectGridArea', 'classGridArea'); let list = (stream==='maths_stream')?["Maths","Physics","Chemistry","English","Hindi"]:(stream==='biology_stream')?["Biology","Physics","Chemistry","English","Hindi"]:(selClass>=6)?["Maths","Science","SST","English","Hindi"]:["Maths","EVS","English","Hindi"]; list.forEach(sub => { const btn = document.createElement("div"); btn.className = "card"; btn.innerHTML = sub.toUpperCase(); btn.onclick = () => showBooksList(sub); grid.appendChild(btn); }); }
-function showBooksList(subject) { hideAll(); document.getElementById("bookListArea").style.display = "block"; const grid = document.getElementById("bookGrid"); grid.innerHTML = ''; const key = selClass + "_" + subject; const books = bookDatabase[key] || [{name: subject + " Book", img: "logo.png", full: "#", chapters: ["Coming Soon..."]}]; books.forEach(book => { const card = document.createElement("div"); card.className = "card book-card"; card.innerHTML = `<img src="${book.img}" onerror="this.src='https://raw.githubusercontent.com/Himanshu-Chaudhary-51/Study-Material-Hub/main/logo.png'"><span>${book.name}</span>`; card.onclick = () => openChapterView(book); grid.appendChild(card); }); }
-function openChapterView(book) { hideAll(); document.getElementById("chapterViewArea").style.display = "block"; document.getElementById("displayBookName").innerText = book.name; document.getElementById("displayClassInfo").innerText = "Class " + selClass; document.getElementById("bookCover").src = book.img; document.getElementById("fullBookLink").href = book.full; document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea'); const list = document.getElementById("chapterList"); list.innerHTML = ''; book.chapters.forEach(ch => { const item = document.createElement("div"); item.className = "chapter-item"; if(typeof ch === 'object') { item.innerHTML = `<span class="chapter-name">${ch.chName}</span><div style="display:flex; gap:10px;"><a href="${ch.link}" target="_blank" class="download-link" style="background:#16a34a;">OPEN</a><a href="${ch.link}" target="_blank" class="download-link">PDF</a></div>`; } else { item.innerHTML = `<span class="chapter-name">${ch}</span><a href="${book.full}" target="_blank" class="download-link">PDF</a>`; } list.appendChild(item); }); }
+function loadSubjects(stream) { hideAll(); document.getElementById("subjectGridArea").style.display = "block"; const grid = document.getElementById("subjectGrid"); grid.innerHTML = ''; document.getElementById("subBackBtn").onclick = () => (selClass >= 11) ? goBack('subjectGridArea', 'streamGridArea') : goBack('subjectGridArea', 'classGridArea'); let list = ["Maths","Physics","Chemistry","English","Hindi"]; list.forEach(sub => { const btn = document.createElement("div"); btn.className = "card"; btn.innerHTML = sub.toUpperCase(); btn.onclick = () => showBooksList(sub); grid.appendChild(btn); }); }
+function showBooksList(subject) { hideAll(); document.getElementById("bookListArea").style.display = "block"; const grid = document.getElementById("bookGrid"); grid.innerHTML = ''; const key = selClass + "_" + subject; const books = bookDatabase[key] || [{name: subject + " Textbook", img: "https://raw.githubusercontent.com/study-material-hub/study-hub/main/logo.png", full: "#", chapters: ["Coming Soon..."]}]; books.forEach(book => { const card = document.createElement("div"); card.className = "card book-card"; card.innerHTML = `<img src="${book.img}"><span>${book.name}</span>`; card.onclick = () => openChapterView(book); grid.appendChild(card); }); }
+function openChapterView(book) { hideAll(); document.getElementById("chapterViewArea").style.display = "block"; document.getElementById("displayBookName").innerText = book.name; document.getElementById("displayClassInfo").innerText = "Class " + selClass; document.getElementById("bookCover").src = book.img; document.getElementById("fullBookLink").href = book.full; document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea'); const list = document.getElementById("chapterList"); list.innerHTML = ''; book.chapters.forEach(ch => { const item = document.createElement("div"); item.className = "chapter-item"; item.innerHTML = `<span class="chapter-name">${ch.chName || ch}</span><a href="${ch.link || book.full}" target="_blank" class="download-link">OPEN PDF</a>`; list.appendChild(item); }); }
 function toggleDarkMode() { document.getElementById("bodyTag").classList.toggle("dark"); }
 function hideAll() { ["mainGrid", "mainSearch", "classGridArea", "streamGridArea", "subjectGridArea", "bookListArea", "chapterViewArea"].forEach(id => document.getElementById(id).style.display = "none"); }
 function goBack(curr, tar, s=false) { document.getElementById(curr).style.display = "none"; document.getElementById(tar).style.display = "block"; if(s) document.getElementById("mainSearch").style.display = "block"; }
@@ -203,6 +164,5 @@ function closeAdmin() { document.getElementById("adminModal").style.display = "n
 function toggleFeedback(e) { if (e.target.id === "feedbackText" || e.target.id === "submitBtn") return; const area = document.getElementById("feedbackArea"); area.style.display = (area.style.display === "block") ? "none" : "block"; }
 function searchItems(selector, id) { let input = document.getElementById(id).value.toLowerCase(); document.querySelectorAll(selector).forEach(c => c.style.display = c.innerText.toLowerCase().includes(input) ? "flex" : "none"); }
 </script>
-
 </body>
 </html>
