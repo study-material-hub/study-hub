@@ -53,14 +53,14 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 .card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
 
 .book-card { background: var(--card); color: var(--text); border: 1px solid var(--border); flex-direction: column; padding: 15px; gap: 10px; height: auto; }
-.book-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 5px; margin-bottom: 5px; }
+.book-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 5px; margin-bottom: 5px; background: #eee; }
 .book-card span { font-size: 15px; font-weight: bold; color: var(--text); }
 
 .search-box { margin-bottom: 20px; }
 .search-box input{ width:100%; padding:15px; font-size:16px; border-radius: 10px; border: 1px solid var(--border); outline: none; background: var(--card); color: var(--text); box-sizing: border-box; }
 
 .book-header { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 25px; background: var(--bg); padding: 20px; border-radius: 12px; position: relative; border: 1px solid var(--border); }
-.book-img { width: 130px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.book-img { width: 130px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); background: #eee; }
 .book-info h2 { margin: 0; color: var(--text); font-size: 24px; }
 .full-download-btn { position: absolute; right: 20px; top: 20px; background: #16a34a; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 8px; }
 
@@ -166,7 +166,7 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
     <div id="chapterViewArea" style="display:none;">
         <button id="chapterBackBtn" style="cursor:pointer; padding:10px 20px; margin-bottom:15px; background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:8px; font-weight:bold;">← Back</button>
         <div class="book-header">
-            <img id="bookCover" src="logo.png" class="book-img">
+            <img id="bookCover" src="logo.png" class="book-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3308/3308319.png'">
             <div class="book-info">
                 <h2 id="displayBookName">Book Name</h2>
                 <p id="displayClassInfo" style="font-weight:bold; opacity:0.8;"></p>
@@ -195,11 +195,13 @@ aside img.profile-pic { width:100px; height:100px; border-radius:50%; border: 3p
 <script>
 let selCategory = '', selClass = '';
 
+/* UPDATED DATABASE WITH RELIABLE IMAGE LINKS */
 const bookDatabase = {
     "11_Hindi": [
         { 
             name: "Aaroh (Hindi Textbook)", 
-            img: "https://ncert.nic.in/textbook/pdf/khah1cc.jpg", 
+            // NCERT link ke bajaye reliable Placeholder ya alternate link
+            img: "https://via.placeholder.com/150/1e40af/ffffff?text=HINDI+AAROH", 
             full: "https://drive.google.com/drive/folders/1M7DRGrQ-ve5jlGQrmTxkSw-Ee6FPDk-J?usp=sharing", 
             chapters: [
                 { chName: "Index (Syllabus)", link: "https://drive.google.com/file/d/1tL1S98oK7uE9m9Uf4z-7v8_N-kO3q9mX/view?usp=sharing" },
@@ -218,11 +220,7 @@ const bookDatabase = {
         }
     ],
     "12_English": [
-        { name: "Flamingo (Textbook)", img: "https://ncert.nic.in/textbook/pdf/lefl1cc.jpg", full: "https://ncert.nic.in/textbook.php?lefl1=0-8", chapters: ["1. The Last Lesson", "2. Lost Spring"] },
-        { name: "Vistas (Supplementary)", img: "https://ncert.nic.in/textbook/pdf/levi1cc.jpg", full: "https://ncert.nic.in/textbook.php?levi1=0-6", chapters: ["1. The Third Level", "2. The Tiger King"] }
-    ],
-    "10_SST": [
-        { name: "History", img: "https://ncert.nic.in/textbook/pdf/jess1cc.jpg", full: "https://ncert.nic.in/textbook.php?jess1=0-5", chapters: ["1. Nationalism in Europe"] }
+        { name: "Flamingo", img: "https://via.placeholder.com/150/1e40af/ffffff?text=FLAMINGO", full: "https://ncert.nic.in/textbook.php?lefl1=0-8", chapters: ["1. The Last Lesson"] }
     ]
 };
 
@@ -263,15 +261,13 @@ function showBooksList(subject) {
     const grid = document.getElementById("bookGrid");
     grid.innerHTML = '';
     const key = selClass + "_" + subject;
-    const books = bookDatabase[key] || [{name: subject + " Textbook", img: "https://ncert.nic.in/textbook/pdf/keph1cc.jpg", full: "#", chapters: ["Coming Soon..."]}];
+    const books = bookDatabase[key] || [{name: subject + " Textbook", img: "https://via.placeholder.com/150/1e40af/ffffff?text="+subject, full: "#", chapters: ["Coming Soon..."]}];
 
     books.forEach(book => {
         const card = document.createElement("div");
         card.className = "card book-card";
-        
-        // Proxy URL used for thumbnail
-        const proxyImg = "https://images.weserv.nl/?url=" + encodeURIComponent(book.img);
-        card.innerHTML = `<img src="${proxyImg}"><span>${book.name}</span>`;
+        // Added onerror to handle image failures
+        card.innerHTML = `<img src="${book.img}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3308/3308319.png'"><span>${book.name}</span>`;
         card.onclick = () => openChapterView(book);
         grid.appendChild(card);
     });
@@ -283,9 +279,8 @@ function openChapterView(book) {
     document.getElementById("displayBookName").innerText = book.name;
     document.getElementById("displayClassInfo").innerText = "Class " + selClass + " | " + (selCategory==='books'?'NCERT PDF':'NCERT Solution');
     
-    // FAST LOADING PROXY LOGIC
-    // NCERT images are slow, weserv.nl proxy makes them fast
-    document.getElementById("bookCover").src = "https://images.weserv.nl/?url=" + encodeURIComponent(book.img);
+    const coverImg = document.getElementById("bookCover");
+    coverImg.src = book.img;
     
     document.getElementById("fullBookLink").href = book.full;
     document.getElementById("chapterBackBtn").onclick = () => goBack('chapterViewArea', 'bookListArea');
